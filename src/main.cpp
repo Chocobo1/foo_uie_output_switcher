@@ -228,7 +228,7 @@ void OutputSwitcher::menuExecCommand(const GUID &commandGuid)
 }
 
 
-LRESULT OutputSwitcher::on_message(const HWND parent_wnd, const UINT msg, const WPARAM wp, const LPARAM lp)
+LRESULT OutputSwitcher::on_message(const HWND parentWnd, const UINT msg, const WPARAM wp, const LPARAM lp)
 {
 	switch (msg)
 	{
@@ -261,7 +261,7 @@ LRESULT OutputSwitcher::on_message(const HWND parent_wnd, const UINT msg, const 
 				return -1;
 			}
 
-			m_combobox = ::CreateWindowEx(0, WC_COMBOBOX, nullptr, (CBS_DROPDOWNLIST | WS_CHILD | WS_VISIBLE | WS_TABSTOP), CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, parent_wnd, NULL, core_api::get_my_instance(), nullptr);
+			m_combobox = ::CreateWindowEx(0, WC_COMBOBOX, nullptr, (CBS_DROPDOWNLIST | WS_CHILD | WS_VISIBLE | WS_TABSTOP), CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, parentWnd, NULL, core_api::get_my_instance(), nullptr);
 			if (m_combobox == NULL)
 			{
 				console::printf(CONSOLE_HEADER "m_wndMyCombobox = CreateWindowEx() failed");
@@ -271,7 +271,7 @@ LRESULT OutputSwitcher::on_message(const HWND parent_wnd, const UINT msg, const 
 				return -1;
 			}
 
-			m_toolTip = CreateWindowEx(0, TOOLTIPS_CLASS, nullptr, (WS_POPUP | TTS_NOPREFIX | TTS_ALWAYSTIP), CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, parent_wnd, NULL, core_api::get_my_instance(), nullptr);
+			m_toolTip = CreateWindowEx(0, TOOLTIPS_CLASS, nullptr, (WS_POPUP | TTS_NOPREFIX | TTS_ALWAYSTIP), CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, parentWnd, NULL, core_api::get_my_instance(), nullptr);
 			if (m_toolTip == NULL)
 			{
 				console::printf(CONSOLE_HEADER "hwndTip = CreateWindowEx() failed");
@@ -287,7 +287,7 @@ LRESULT OutputSwitcher::on_message(const HWND parent_wnd, const UINT msg, const 
 			static CONST TOOLINFO toolInfo = {
 				sizeof(toolInfo),
 				TTF_IDISHWND | TTF_SUBCLASS,
-				parent_wnd,
+				parentWnd,
 				(UINT_PTR) m_combobox,
 				{},
 				{},
@@ -420,5 +420,5 @@ LRESULT OutputSwitcher::on_message(const HWND parent_wnd, const UINT msg, const 
 
 	// Calls the default window procedure to provide default processing for any window messages that an application does not process.
 	// This function ensures that every message is processed.
-	return uDefWindowProc(parent_wnd, msg, wp, lp);
+	return uDefWindowProc(parentWnd, msg, wp, lp);
 }
