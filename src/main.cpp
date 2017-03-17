@@ -52,9 +52,7 @@ void OutputSwitcher::initCombobox()
 		m_minSizeWidth = min(m_minSizeWidth, cx);
 		m_fullSizeWidth = max(m_fullSizeWidth, cx);
 	}
-	const int extraMargin = ui_helpers::get_text_width(dc, "0", 1);
-	m_minSizeWidth += (extraMargin * 4);
-	m_fullSizeWidth += extraMargin;
+	m_extraMargin = ui_helpers::get_text_width(dc, "0", 1);
 	SelectFont(dc, origFont);
 	ReleaseDC(m_combobox, dc);
 
@@ -331,7 +329,7 @@ LRESULT OutputSwitcher::on_message(const HWND parentWnd, const UINT msg, const W
 		case WM_GETMINMAXINFO:
 		{
 			LPMINMAXINFO ptr = (LPMINMAXINFO) lp;
-			ptr->ptMinTrackSize.x = m_minSizeWidth;
+			ptr->ptMinTrackSize.x = m_minSizeWidth + (4 * m_extraMargin);
 
 			ptr->ptMinTrackSize.y = m_HEIGHT;
 			ptr->ptMaxTrackSize.y = m_HEIGHT;
@@ -369,7 +367,7 @@ LRESULT OutputSwitcher::on_message(const HWND parentWnd, const UINT msg, const W
 				{
 					//console::printf(CONSOLE_HEADER "got CBN_DROPDOWN");
 
-					if (!setComboboxWidth(m_fullSizeWidth))
+					if (!setComboboxWidth(m_fullSizeWidth + (2 * m_extraMargin)))
 						break;
 					return 0;
 				}
