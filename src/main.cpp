@@ -132,7 +132,7 @@ bool OutputSwitcher::setComboboxWidth(const int width) const
 OutputSwitcher::ItemList OutputSwitcher::menuFindCommands() const
 {
 	// dynamic menu item: (Shift + Menu) -> Playback -> Device -> Preferences...
-	const GUID PREFERENCES_GUID = {0x05A4AFB8, 0x8A35, 0x4B28, {0x9C,0x3A,0x9E,0xD4,0x10,0xFE,0xcf,0x2e}};
+	const GUID PREFERENCES_GUID = {0x05a4afb8, 0x8a35, 0x4b28, {0x9c,0x3a,0x9e,0xd4,0x10,0xfe,0xcf,0x2e}};
 
 	ItemList out;
 
@@ -418,7 +418,7 @@ LRESULT OutputSwitcher::on_message(const HWND parent_wnd, const UINT msg, const 
 		}
 	}
 
-	// Calls the default window procedure to provide default processing for any window messages that an application does not process. 
+	// Calls the default window procedure to provide default processing for any window messages that an application does not process.
 	// This function ensures that every message is processed.
 	return uDefWindowProc(parent_wnd, msg, wp, lp);
 }
