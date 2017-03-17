@@ -107,7 +107,7 @@ bool OutputSwitcher::getSelectItem(OutputSwitcher::ComboboxItem &out) const
 	int idx = uSendMessage(m_combobox, CB_GETCURSEL, 0, 0);
 	if (idx == CB_ERR)
 	{
-		console::printf(CONSOLE_HEADER "CB_GETCURSEL get CB_ERR");
+		console::printf(CONSOLE_HEADER "%s() failed", __FUNCTION__);
 		return false;
 	}
 
@@ -121,7 +121,7 @@ bool OutputSwitcher::setComboboxWidth(const int width) const
 	int idx = uSendMessage(m_combobox, CB_SETDROPPEDWIDTH, width, 0);
 	if (idx == CB_ERR)
 	{
-		console::printf(CONSOLE_HEADER "CB_SETDROPPEDWIDTH get CB_ERR");
+		console::printf(CONSOLE_HEADER "%s() failed", __FUNCTION__);
 		return false;
 	}
 
@@ -238,17 +238,17 @@ LRESULT OutputSwitcher::on_message(const HWND parentWnd, const UINT msg, const W
 
 			if (m_uiHfont != NULL)
 			{
-				console::printf(CONSOLE_HEADER "Error: ui_hfont != NULL");
+				console::printf(CONSOLE_HEADER "Error: m_uiHfont != NULL");
 				return -1;
 			}
 			if (m_combobox != NULL)
 			{
-				console::printf(CONSOLE_HEADER "Error: wnd_my_combo_box != NULL");
+				console::printf(CONSOLE_HEADER "Error: m_combobox != NULL");
 				return -1;
 			}
 			if (m_toolTip != NULL)
 			{
-				console::printf(CONSOLE_HEADER "Error: hwndTip != NULL");
+				console::printf(CONSOLE_HEADER "Error: m_toolTip != NULL");
 				return -1;
 			}
 
@@ -264,7 +264,7 @@ LRESULT OutputSwitcher::on_message(const HWND parentWnd, const UINT msg, const W
 			m_combobox = ::CreateWindowEx(0, WC_COMBOBOX, nullptr, (CBS_DROPDOWNLIST | WS_CHILD | WS_VISIBLE | WS_TABSTOP), CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, parentWnd, NULL, core_api::get_my_instance(), nullptr);
 			if (m_combobox == NULL)
 			{
-				console::printf(CONSOLE_HEADER "m_wndMyCombobox = CreateWindowEx() failed");
+				console::printf(CONSOLE_HEADER "m_combobox = CreateWindowEx() failed");
 
 				::DeleteFont(m_uiHfont);
 				m_uiHfont = NULL;
@@ -274,7 +274,7 @@ LRESULT OutputSwitcher::on_message(const HWND parentWnd, const UINT msg, const W
 			m_toolTip = CreateWindowEx(0, TOOLTIPS_CLASS, nullptr, (WS_POPUP | TTS_NOPREFIX | TTS_ALWAYSTIP), CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, parentWnd, NULL, core_api::get_my_instance(), nullptr);
 			if (m_toolTip == NULL)
 			{
-				console::printf(CONSOLE_HEADER "hwndTip = CreateWindowEx() failed");
+				console::printf(CONSOLE_HEADER "m_toolTip = CreateWindowEx() failed");
 
 				::DeleteFont(m_uiHfont);
 				m_uiHfont = NULL;
@@ -413,7 +413,7 @@ LRESULT OutputSwitcher::on_message(const HWND parentWnd, const UINT msg, const W
 
 		default:
 		{
-			//console::printf( CONSOLE_HEADER "default case: %u" , msg );
+			//console::printf(CONSOLE_HEADER "default case: %u", msg);
 			break;
 		}
 	}
