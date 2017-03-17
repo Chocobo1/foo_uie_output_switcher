@@ -62,7 +62,7 @@ class OutputSwitcher : private ui_extension::container_ui_extension
 	// ui_helpers::container_window
 	class_data & get_class_data()const override
 	{
-		static const TCHAR className[] = _T("{B7A22167 - 25FC - 4B8B - 901C - C428A5EDB109}");
+		static const TCHAR className[] = _T("{B7A22167-25FC-4B8B-901C-C428A5EDB109}");
 		__implement_get_class_data(className, false);
 	}
 
