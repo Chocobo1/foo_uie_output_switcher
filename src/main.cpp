@@ -287,7 +287,7 @@ LRESULT OutputSwitcher::on_message(const HWND parentWnd, const UINT msg, const W
 				return -1;
 			}
 
-			static CONST TOOLINFO toolInfo = {
+			CONST TOOLINFO toolInfo = {
 				sizeof(toolInfo),
 				TTF_IDISHWND | TTF_SUBCLASS,
 				parentWnd,
