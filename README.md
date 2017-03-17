@@ -1,7 +1,7 @@
 # foo_uie_output_switcher [![AppVeyor Build](https://ci.appveyor.com/api/projects/status/github/Chocobo1/foo_uie_output_switcher?branch=master&svg=true)](https://ci.appveyor.com/project/Chocobo1/foo_uie_output_switcher)
 
 ### Features
-* A dropdown combo box to change output device quickly ![working_screenshot](./pics/working.png)
+* A dropdown combobox for changing output device quickly ![working_screenshot](./pics/working.png)
 
 ### Download
 [Releases page](../../releases)

@@ -49,7 +49,7 @@ class OutputSwitcher : private ui_extension::container_ui_extension
 
 	bool get_description(pfc::string_base & out) const override
 	{
-		out = "An dropdown combo box to change output device quickly";
+		out = "A dropdown combobox for changing output device quickly";
 		return true;
 	};
 
