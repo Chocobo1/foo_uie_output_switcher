@@ -63,7 +63,7 @@ void OutputSwitcher::initCombobox()
 
 	RECT rcClient;
 	GetClientRect(m_combobox, &rcClient);
-	const long rectMargin = RECT_CX(rcClient) - RECT_CX(cbi.rcItem);;
+	const long rectMargin = RECT_CX(rcClient) - RECT_CX(cbi.rcItem);
 	m_minSizeWidth += rectMargin;
 	m_fullSizeWidth += rectMargin;
 
