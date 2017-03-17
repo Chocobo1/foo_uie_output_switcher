@@ -1,7 +1,7 @@
 #pragma once
 
 #define PLUGIN_NAME "Output Switcher"
-#define PLUGIN_VERSION "1.0"
+#define PLUGIN_VERSION "1.0.1"
 
 
 class OutputSwitcher : private ui_extension::container_ui_extension
