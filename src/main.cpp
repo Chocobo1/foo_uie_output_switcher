@@ -16,6 +16,9 @@ DECLARE_COMPONENT_VERSION
 );
 
 
+#define ARRAY_LENGTH(a) (std::extent<decltype(a)>::value)
+
+
 void OutputSwitcher::initCombobox()
 {
 	// get output devices names
@@ -399,7 +402,7 @@ LRESULT OutputSwitcher::on_message(const HWND parentWnd, const UINT msg, const W
 						break;
 
 					LPNMTTDISPINFO ptr = (LPNMTTDISPINFO) lp;
-					MultiByteToWideChar(CP_UTF8, 0, item.name.c_str(), -1, ptr->szText, 80 - 1);
+					MultiByteToWideChar(CP_UTF8, 0, item.name.c_str(), -1, ptr->szText, ARRAY_LENGTH(ptr->szText) - 1);
 
 					return 0;
 				}
