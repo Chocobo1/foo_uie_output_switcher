@@ -92,4 +92,4 @@ class OutputSwitcher : private ui_extension::container_ui_extension
 	int m_minSizeWidth = INT_MAX;
 	int m_fullSizeWidth = 0;
 };
-static ui_extension::window_factory<OutputSwitcher> output_switcher_impl;
+static ui_extension::window_factory<OutputSwitcher> outputSwitcherImpl;
